@@ -4,20 +4,19 @@ MAINTAINER Giacomo Triggiano <giacomo@creativecoding.it>
 
 RUN adduser --disabled-password --gecos "Sinopia NPM mirror" sinopia
 
-RUN mkdir -p /var/sinopia/storage
-WORKDIR /var/sinopia
+RUN npm install -g sinopia
 
-RUN npm install js-yaml sinopia
+RUN mkdir -p /data/sinopia/storage
 
-ADD /generate_configuration.js /var/sinopia/generate_configuration.js
-ADD /start_sinopia.sh /var/sinopia/start.sh
+WORKDIR /data/sinopia
 
-RUN chown -R sinopia:sinopia /var/sinopia
-RUN chmod +x /var/sinopia/start.sh
+ADD /config.yaml /data/sinopia/config.yaml
+
+RUN chown -R sinopia:sinopia /data/sinopia
 
 USER sinopia
 
 EXPOSE 4873
-VOLUME /var/sinopia
+VOLUME /data/sinopia
 
-CMD ["/var/sinopia/start.sh"]
+CMD ["sinopia"]
