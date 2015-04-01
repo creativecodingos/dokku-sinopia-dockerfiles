@@ -5,7 +5,7 @@ MAINTAINER Giacomo Triggiano <giacomo@creativecoding.it>
 RUN adduser --disabled-password --gecos "Sinopia NPM mirror" sinopia
 
 RUN mkdir -p /var/sinopia/storage
-WORKDIR /opt/sinopia
+WORKDIR /var/sinopia
 
 RUN npm install js-yaml sinopia
 RUN chown -R sinopia:sinopia /opt/sinopia
