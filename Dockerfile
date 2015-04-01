@@ -8,12 +8,14 @@ RUN mkdir -p /var/sinopia/storage
 WORKDIR /var/sinopia
 
 RUN npm install js-yaml sinopia
-RUN chown -R sinopia:sinopia /var/sinopia
-
-USER sinopia
 
 ADD /generate_configuration.js /var/sinopia/generate_configuration.js
 ADD /start_sinopia.sh /var/sinopia/start.sh
+
+RUN chown -R sinopia:sinopia /var/sinopia
+RUN chmod +x /var/sinopia/start.sh
+
+USER sinopia
 
 EXPOSE 4873
 VOLUME /var/sinopia
