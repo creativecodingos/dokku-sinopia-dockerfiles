@@ -8,7 +8,7 @@ RUN mkdir -p /var/sinopia/storage
 WORKDIR /var/sinopia
 
 RUN npm install js-yaml sinopia
-RUN chown -R sinopia:sinopia /opt/sinopia
+RUN chown -R sinopia:sinopia /var/sinopia
 
 USER sinopia
 
