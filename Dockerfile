@@ -8,7 +8,7 @@ RUN npm install -g sinopia
 
 RUN mkdir -p /data/sinopia/storage
 
-WORKDIR /data/sinopia
+WORKDIR /data
 
 ADD /config.yaml /data/sinopia/config.yaml
 
