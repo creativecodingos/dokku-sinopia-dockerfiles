@@ -10,8 +10,6 @@ RUN mkdir -p /data/sinopia/storage
 
 WORKDIR /data
 
-ADD /config.yaml /data/sinopia/config.yaml
-
 RUN chown -R sinopia:sinopia /data/sinopia
 
 USER sinopia
