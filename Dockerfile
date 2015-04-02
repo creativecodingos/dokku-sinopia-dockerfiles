@@ -17,6 +17,5 @@ RUN chown -R sinopia:sinopia /data/sinopia
 USER sinopia
 
 EXPOSE 4873
-VOLUME /data/sinopia
 
 CMD ["sinopia"]
